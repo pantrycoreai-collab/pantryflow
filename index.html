@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PantryFlow pre Android. Zásoby, nákupný zoznam a plán jedál na jednom mieste.">
+<title>PantryFlow — Maj prehľad v špajzi</title>
+<style>
+:root{color-scheme:light;--ink:#172f29;--muted:#4c6157;--green:#196447;--paper:#f7f7ee;--line:#d9e4d8}*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,sans-serif;background:var(--paper);color:var(--ink)}a{color:inherit}a:focus-visible,summary:focus-visible{outline:3px solid #e5a03e;outline-offset:5px}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}header{border-bottom:1px solid var(--line)}nav,footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-block:17px}nav a{text-decoration:none}.brand{font-size:1.3rem;font-weight:850;letter-spacing:-.05em}.mark{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:8px;border-radius:11px;background:#dcedd7;color:var(--green)}.hero{display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center;padding-block:76px}.eyebrow{font-weight:800;text-transform:uppercase;letter-spacing:.13em;font-size:.74rem;color:var(--green)}h1,h2,h3,p{margin-top:0}h1,h2{line-height:1.05;letter-spacing:-.06em}h1{font-size:clamp(3rem,8vw,6.4rem);margin-bottom:22px}h1 span{color:var(--green)}h2{font-size:clamp(2.15rem,5vw,3.7rem);margin-bottom:17px}.intro{font-size:1.17rem;max-width:40ch;color:var(--muted)}.button{display:inline-block;background:var(--green);color:white;padding:12px 20px;border-radius:13px;font-weight:750;text-decoration:none}.button:hover{background:#104b34}.sample{margin:0;padding:28px;background:#dcebd8;border-radius:34px}.panel{background:white;border-radius:22px;padding:22px;box-shadow:0 15px 35px #1b41251c}.panel h3{font-size:1.6rem;margin-bottom:8px}.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line)}.row span:last-child{color:var(--muted);text-align:right}.sample figcaption{margin-top:12px;text-align:center;color:#3d594b;font-size:.8rem}.features{padding-block:32px 72px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{padding:22px;background:white;border:1px solid var(--line);border-radius:18px}.card h3{margin-bottom:5px}.card p{margin:0;color:var(--muted)}.download{background:#183a30;color:#fff;padding-block:54px}.download .eyebrow,.download p,.download ol{color:#d7ebde}.download .button{background:#d6f0bd;color:#173a2d}.download .button:hover{background:#ebf8dc}details{margin-top:20px;max-width:65ch}summary{cursor:pointer;font-weight:700}footer{font-size:.88rem;color:var(--muted)}@media(max-width:760px){.hero{grid-template-columns:1fr;gap:26px;padding-block:48px}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:490px){.grid{grid-template-columns:1fr}.sample{padding:14px}.wrap{width:calc(100% - 32px)}}
+</style>
+<style>
+:root{--paper:#f5f4e9;--ink:#142b21;--green:#285942;--line:#dce2d2}body{background:radial-gradient(ellipse at 92% 10%,#e5ead1,transparent 45%),var(--paper)}header{background:#f5f4e9e8;position:sticky;top:0;z-index:5;backdrop-filter:blur(14px)}nav>a:last-child{border:1px solid #b8cbb7;border-radius:99px;padding:7px 17px;font-weight:700}.hero{min-height:650px;padding-block:85px}.eyebrow{letter-spacing:.18em}h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(3.7rem,8.3vw,7.3rem);line-height:.91}h1 span{font-style:italic}.button{border-radius:99px;padding:14px 24px;transition:transform .25s,background .25s}.button:hover{transform:translateY(-3px)}.sample{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(circle at 18% 85%,#b3cb8a,transparent 45%),linear-gradient(135deg,#163d30,#457757);padding:64px 32px 36px;min-width:0}.sample:before{content:"01  /  PREHĽAD ZÁSOB";position:absolute;top:21px;left:27px;color:#edf5df;font-size:.66rem;font-weight:800;letter-spacing:.18em}.sample:after{content:"";position:absolute;width:320px;height:320px;border:1px solid #ffffff42;border-radius:50%;right:-110px;top:-95px;box-shadow:0 0 0 22px #ffffff12,0 0 0 47px #ffffff12;z-index:-1}.panel{transform:rotate(-4deg);animation:float 6s ease-in-out infinite;box-shadow:0 24px 55px #102a2780}.panel .row{font-size:.9rem}.panel .row:nth-of-type(2) span:last-child{background:#faeac7;border-radius:20px;padding:2px 8px;color:#6b440c}.sample figcaption{color:#fff;margin-top:26px}.grid{counter-reset:cards}.card{counter-increment:cards;transition:transform .25s,background .25s,box-shadow .25s;padding:25px}.card:before{content:"0" counter(cards);display:grid;place-items:center;width:40px;height:40px;border-radius:14px;background:#e5edd9;color:#285942;font-size:.78rem;font-weight:800;margin-bottom:20px}.card:hover{transform:translateY(-5px);background:#fcfff6;box-shadow:0 15px 30px #254b2414}.download{background:radial-gradient(circle at 90% 20%,#39634a,transparent 50%),#183a30;padding-block:76px;scroll-margin-top:76px}.download h2,.features h2{font-family:Georgia,serif;font-weight:500}.motion .reveal{animation:appear .65s ease-out both}.motion .waiting{opacity:0}@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(-2deg)}}@media(max-width:760px){.hero{min-height:auto;padding-block:56px}.sample{padding:55px 22px 28px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.motion .waiting{opacity:1}}
+</style>
+<style>footer .wrap{flex-wrap:wrap}</style><style>[hidden]{display:none!important}</style></head>
+<body>
+<header><nav class="wrap" aria-label="Hlavná navigácia"><a class="brand" href="#"><span class="mark" aria-hidden="true">P</span>PantryFlow</a><a href="#stiahnutie">Stiahnuť</a></nav></header>
+<main>
+<section class="hero wrap" aria-labelledby="nadpis">
+<div><p class="eyebrow">Aplikácia pre Android</p><h1 id="nadpis">Maj prehľad <span>v špajzi.</span></h1><p class="intro">Zisti, čo máš doma, čo treba dokúpiť a čo sa dá uvariť zo zásob. Všetko na jednom mieste.</p><a class="button" href="#stiahnutie">Získať testovaciu verziu ↓</a></div>
+<figure class="sample"><div class="panel"><p class="eyebrow">Prehľad domácnosti</p><h3>Moja špajza</h3><div class="row"><strong>Ovsené vločky</strong><span>500 g</span></div><div class="row"><strong>Biely jogurt</strong><span>Spotrebovať čoskoro</span></div><div class="row"><strong>Paradajky</strong><span>4 ks</span></div></div><figcaption>Ilustračná ukážka evidencie zásob</figcaption></figure>
+</section>
+<section class="features wrap" aria-labelledby="funkcie"><p class="eyebrow">Funkcie PantryFlow</p><h2 id="funkcie">Od zásob po večeru</h2><div class="grid">
+<article class="card"><h3>Zásoby a trvanlivosť</h3><p>Eviduj potraviny a nastav si upozornenia na blížiaci sa dátum spotreby.</p></article>
+<article class="card"><h3>Skenovanie pri nákupe</h3><p>Pridávaj produkty cez čiarový kód a spracuj položky z účtenky.</p></article>
+<article class="card"><h3>Nákupný zoznam</h3><p>Zapíš si, čo chýba, a odškrtávaj položky priamo pri nákupe.</p></article>
+<article class="card"><h3>Recepty a AI kuchár</h3><p>Hľadaj nápady na jedlá a nechaj si navrhnúť recept podľa surovín.</p></article>
+<article class="card"><h3>Plán jedál</h3><p>Rozvrhni si jedlá na najbližšie dni.</p></article>
+<article class="card"><h3>Spoločná domácnosť</h3><p>Synchronizuj zásoby, nákupy a plán jedál v domácnosti.</p></article>
+</div></section>
+<section class="download" id="stiahnutie" aria-labelledby="apk"><div class="wrap"><p class="eyebrow">Android APK · 96,9 MB</p><h2 id="apk">Vyskúšaj PantryFlow</h2><p>Testovacia zostava (debug) určená na ručnú inštaláciu v Androide.</p><a class="button" id="github-apk" href="#apk-stav" hidden>Stiahnuť testovacie APK ↓</a>
+<p id="apk-stav">Odkaz na APK sa aktivuje po zverejnení webu na GitHub Pages a vydania testovacej verzie.</p>
+<script>
+const page = location.hostname.match(/^([a-z0-9-]+)\.github\.io$/i);
+const repo = location.pathname.split('/')[1];
+if (page && repo && /^[a-z0-9_.-]+$/i.test(repo)) {
+  const button = document.getElementById('github-apk');
+  button.href = 'https://github.com/' + page[1] + '/' + repo + '/releases/download/v1.0.0-test/PantryFlow-debug.apk';
+  button.hidden = false;
+  document.getElementById('apk-stav').hidden = true;
+}
+</script>
+<details><summary>Ako nainštalovať APK</summary><ol><li>Stiahni APK do zariadenia s Androidom a otvor ho.</li><li>Ak si Android vyžiada povolenie na inštaláciu z tohto zdroja, povoľ ju pre aplikáciu, z ktorej súbor otváraš.</li><li>Potvrď inštaláciu a otvor PantryFlow.</li></ol></details></div></section>
+</main>
+<footer><div class="wrap"><strong>PantryFlow</strong><a href="https://sites.google.com/view/pantryflow-app/home?authuser=2">Zmazanie účtu</a><a href="mailto:pantrycoreai@gmail.com">pantrycoreai@gmail.com</a></div></footer>
+<script>
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.replace('waiting', 'reveal');
+        observer.unobserve(entry.target);
+      }
+    }
+  }, {threshold: 0.12});
+  document.documentElement.classList.add('motion');
+  cards.forEach(card => {
+    card.classList.add('waiting');
+    observer.observe(card);
+  });
+}
+</script>
+</body>
+</html>
+
+
+
+
